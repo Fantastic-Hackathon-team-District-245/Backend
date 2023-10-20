@@ -1,10 +1,10 @@
-package com.tablesoccer.features.registration
+package com.tablesoccer.features.profile
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-fun Route.registrationRouting() {
+fun Route.profileRouting() {
     get("/register") {
         call.respondText("Hello World!")
     }
