@@ -1,7 +1,5 @@
 package com.tablesoccer.database.user
 
-import kotlinx.coroutines.selects.select
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -13,10 +11,10 @@ class UsersRepository {
     fun create(userDTO: UserDTO) {
         transaction {
             UsersTable.insert {
-                it[UsersTable.login] = userDTO.login
-                it[UsersTable.password] = userDTO.password
-                it[UsersTable.username] = userDTO.username
-                it[UsersTable.email] = userDTO.email
+                it[login] = userDTO.login
+                it[password] = userDTO.password
+                it[username] = userDTO.username
+                it[email] = userDTO.email
             }
         }
     }
