@@ -1,8 +1,8 @@
 package com.tablesoccer.database.user
 
-class UserDTO(
+class UserEntity(
     val login: String,
     val password: String,
     val email: String,
-    val username: String
+    val name: String
 )

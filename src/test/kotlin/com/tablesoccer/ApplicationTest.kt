@@ -1,6 +1,6 @@
 package com.tablesoccer
 
-import com.tablesoccer.plugins.*
+import com.tablesoccer.configuration.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*

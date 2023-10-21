@@ -1,4 +1,4 @@
-package com.tablesoccer.plugins
+package com.tablesoccer.configuration
 
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm

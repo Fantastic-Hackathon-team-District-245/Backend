@@ -1,4 +1,4 @@
-package com.tablesoccer.plugins
+package com.tablesoccer.configuration
 
 import com.tablesoccer.features.commands.commandsRouting
 import com.tablesoccer.features.login.loginRouting
