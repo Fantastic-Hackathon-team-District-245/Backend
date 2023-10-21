@@ -22,8 +22,8 @@ fun Route.loginRoute() {
             call.respond(loginResponseDto)
         } catch (e: Exception) {
             when (e) {
-                is NotFoundException -> call.respond(HttpStatusCode.BadRequest, "Incorrect password")
-                is InvalidPasswordException -> call.respond(HttpStatusCode.BadRequest, "User not found")
+                is NotFoundException -> call.respond(HttpStatusCode.BadRequest, "User not found")
+                is InvalidPasswordException -> call.respond(HttpStatusCode.BadRequest, "Incorrect password")
                 else -> throw e
             }
         }

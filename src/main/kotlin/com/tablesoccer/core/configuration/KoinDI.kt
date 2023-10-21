@@ -2,6 +2,7 @@ package com.tablesoccer.core.configuration
 
 import com.tablesoccer.database.user.UsersRepository
 import com.tablesoccer.features.login.LoginService
+import com.tablesoccer.features.registration.RegistrationService
 import io.ktor.server.application.*
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
@@ -14,6 +15,7 @@ val daoModule = module {
 
 val serviceModule = module {
     singleOf(::LoginService)
+    singleOf(::RegistrationService)
 }
 
 fun Application.configureKoinDI() {
