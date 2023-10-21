@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.Table
 /**
  * сущность таблицы с туриками
  */
-object TournamentsTable:Table() {
+object TournamentsTable : Table(name = "tournaments") {
     val tournamentID = TournamentsTable.varchar("name", 30)
     val name = TournamentsTable.varchar("name", 40)
     val startDate = TournamentsTable.varchar("startDate", 10)

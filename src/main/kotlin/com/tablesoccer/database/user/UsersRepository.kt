@@ -1,31 +1,41 @@
 package com.tablesoccer.database.user
 
-import org.jetbrains.exposed.sql.insert
+import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.util.*
 
 /**
  * DAO (Database access object) сущность - сущность для общения с базой данных
  */
 class UsersRepository {
-    fun create(userEntity: UserEntity) {
-        transaction {
-            UsersTable.insert {
-                it[password] = userEntity.password
-                it[name] = userEntity.name
-                it[email] = userEntity.email
-            }
+
+    /**
+     * Создает пользователя и возвращает его UUID
+     */
+    fun create(
+        email: String,
+        password: String,
+        name: String,
+    ): UUID {
+        return transaction {
+            UsersTable.insertAndGetId {
+                it[UsersTable.email] = email
+                it[UsersTable.password] = password
+                it[UsersTable.name] = name
+            }.value
         }
     }
 
-    fun findByEmail(email: String): UserEntity? {
+    fun findByEmail(email: String): UserModel? {
         return try {
             transaction {
                 val userModel = UsersTable.select { UsersTable.email.eq(email) }.single()
-                UserEntity(
+                UserModel(
+                    id = userModel[UsersTable.id].value,
+                    email = userModel[UsersTable.email],
                     password = userModel[UsersTable.password],
                     name = userModel[UsersTable.name],
-                    email = userModel[UsersTable.email],
                 )
             }
         } catch (e: Exception) {

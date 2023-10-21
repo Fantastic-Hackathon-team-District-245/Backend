@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
  * сущность для общения с б.д.
  */
 class TournamentsRepository {
-    fun create(tournament: TournamentEntity){
+    fun create(tournament: TournamentModel) {
         transaction {
             TournamentsTable.insert {
                 it[tournamentID] = tournament.tournamentID

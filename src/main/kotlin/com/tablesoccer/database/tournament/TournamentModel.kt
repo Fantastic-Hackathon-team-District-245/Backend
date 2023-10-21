@@ -2,14 +2,14 @@ package com.tablesoccer.database.tournament
 
 import java.time.LocalDate
 
-
 enum class TournamentStatus {
     PLANNED,
     ACTIVE,
     COMPLETED,
     CANCELED
 }
-class TournamentEntity (
+
+class TournamentModel(
     val tournamentID: String,
     val name: String,
     val startDate: LocalDate,
@@ -23,7 +23,7 @@ class TournamentEntity (
 
 private const val TEAMS_IDS_SEPARATOR = ","
 
-fun List<String>.toTeamsIdsString():String = joinToString(separator = TEAMS_IDS_SEPARATOR)
+fun List<String>.toTeamsIdsString(): String = joinToString(separator = TEAMS_IDS_SEPARATOR)
 
 fun String.toTeamsIdsList(): List<String> = split(TEAMS_IDS_SEPARATOR)
 

@@ -1,15 +1,10 @@
 package com.tablesoccer.features.registration.dto.response
 
-import com.tablesoccer.database.user.UserEntity
+import com.tablesoccer.utils.serializers.UUIDSerializer
 import kotlinx.serialization.Serializable
+import java.util.*
 
 @Serializable
 data class RegistrationResponseDto(
-    val email: String,
-    val name: String
-)
-
-fun UserEntity.mapToRegistrationResponseDto(): RegistrationResponseDto = RegistrationResponseDto(
-    email = email,
-    name = name,
+    @Serializable(with = UUIDSerializer::class) val userId: UUID,
 )
