@@ -1,4 +1,4 @@
-package com.tablesoccer.configuration
+package com.tablesoccer.core.configuration
 
 import io.ktor.http.*
 import io.ktor.server.application.*

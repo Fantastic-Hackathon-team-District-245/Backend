@@ -1,4 +1,4 @@
-package com.tablesoccer.configuration
+package com.tablesoccer.core.configuration
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
