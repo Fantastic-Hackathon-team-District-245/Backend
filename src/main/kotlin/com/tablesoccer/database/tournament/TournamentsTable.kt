@@ -1,21 +1,19 @@
 package com.tablesoccer.database.tournament
 
-import org.jetbrains.exposed.sql.Table
+import org.jetbrains.exposed.dao.id.UUIDTable
+import org.jetbrains.exposed.sql.javatime.date
 
 
 /**
  * сущность таблицы с туриками
  */
-object TournamentsTable : Table(name = "tournaments") {
-    val tournamentID = TournamentsTable.varchar("name", 30)
-    val name = TournamentsTable.varchar("name", 40)
-    val startDate = TournamentsTable.varchar("startDate", 10)
-    val endDate = TournamentsTable.varchar("endDate", 10)
-    val status = TournamentsTable.varchar("status", 9)
+object TournamentsTable : UUIDTable(name = "tournaments") {
+    val name = TournamentsTable.text("name")
+    val startDate = TournamentsTable.date("startDate")
+    val endDate = TournamentsTable.date("endDate")
+    val status = TournamentsTable.text("status")
     val maxNumOfTeams = TournamentsTable.integer("maxNumOfTeams")
-    val winner = TournamentsTable.varchar("winner", 25)
+    val winner = TournamentsTable.text("winner")
     val teamsIds = TournamentsTable.text("teamsIds")
 
-
-    override val primaryKey = PrimaryKey(tournamentID)
 }
