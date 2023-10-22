@@ -4,7 +4,7 @@ import com.tablesoccer.features.commands.commandsRouting
 import com.tablesoccer.features.login.loginRouting
 import com.tablesoccer.features.profile.profileRouting
 import com.tablesoccer.features.registration.registrationRouting
-import com.tablesoccer.features.tournaments.createTournamentRouting
+import com.tablesoccer.features.tournaments.TournamentRouting
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 
@@ -14,6 +14,6 @@ fun Application.configureRouting() {
         loginRouting()
         profileRouting()
         registrationRouting()
-        createTournamentRouting()
+        TournamentRouting()
     }
 }

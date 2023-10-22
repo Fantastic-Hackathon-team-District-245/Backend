@@ -30,6 +30,6 @@ fun Route.createTournamentRoute() {
     }
 }
 
-fun Route.createTournamentRouting(){
+fun Route.TournamentRouting(){
     createTournamentRoute()
 }
