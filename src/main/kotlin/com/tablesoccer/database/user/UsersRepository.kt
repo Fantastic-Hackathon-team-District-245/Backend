@@ -42,4 +42,20 @@ class UsersRepository {
             null
         }
     }
+
+    fun findById(userId: UUID): UserModel? {
+        return try {
+            transaction {
+                val userModel = UsersTable.select { UsersTable.id.eq(userId) }.single()
+                UserModel(
+                    id = userModel[UsersTable.id].value,
+                    email = userModel[UsersTable.email],
+                    password = userModel[UsersTable.password],
+                    name = userModel[UsersTable.name],
+                )
+            }
+        } catch (e: Exception) {
+            null
+        }
+    }
 }
