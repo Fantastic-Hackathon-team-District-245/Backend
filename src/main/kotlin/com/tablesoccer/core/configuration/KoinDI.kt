@@ -3,6 +3,7 @@ package com.tablesoccer.core.configuration
 import com.tablesoccer.database.tournament.TournamentsRepository
 import com.tablesoccer.database.user.UsersRepository
 import com.tablesoccer.features.login.LoginService
+import com.tablesoccer.features.profile.ProfileService
 import com.tablesoccer.features.registration.RegistrationService
 import com.tablesoccer.features.tournaments.CreateTournamentService
 import io.ktor.server.application.*
@@ -20,6 +21,7 @@ val serviceModule = module {
     singleOf(::LoginService)
     singleOf(::RegistrationService)
     singleOf(::CreateTournamentService)
+    singleOf(::ProfileService)
 }
 
 fun Application.configureKoinDI() {
